@@ -4,11 +4,10 @@ from subprocess import call, check_output
 # phone must be in media transfer mode
 # call(["adb", "usb"])
 
-DATA_DIR = '/Users/adam/audio/data/'
 SOUND_DIR = '/Users/adam/audio/sound/'
 PHONE_INTERNAL_DIR = '/sdcard/Android/data/org.prx.talbot/files/'
 
-def save_info_from(DATA_DIR, SOUND_DIR, PHONE_INTERNAL_DIR):    
+def save_info_from(SOUND_DIR, PHONE_INTERNAL_DIR):    
 
     already_gotten = os.listdir(SOUND_DIR)
 
@@ -22,4 +21,4 @@ def save_info_from(DATA_DIR, SOUND_DIR, PHONE_INTERNAL_DIR):
             call(['adb','pull','/sdcard/Android/data/org.prx.talbot/files/'+fn,SOUND_DIR+'.'])
             print "Copied", fn
 
-save_info_from(DATA_DIR, SOUND_DIR, PHONE_INTERNAL_DIR)
+save_info_from(SOUND_DIR, PHONE_INTERNAL_DIR)
