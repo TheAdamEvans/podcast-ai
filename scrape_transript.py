@@ -1,8 +1,3 @@
-
-# coding: utf-8
-
-# In[1]:
-
 import os
 import pickle
 import time
@@ -12,8 +7,6 @@ import pandas as pd
 from urllib2 import urlopen
 from bs4 import BeautifulSoup
 
-
-# In[27]:
 
 class Scraper(object):
     """ Opens the webpage and retains information """
@@ -75,8 +68,6 @@ class Scraper(object):
             return episode
 
 
-# In[42]:
-
 def save_info_from(episode_number, data_dir):
 
     # check if we have already crawled this
@@ -103,25 +94,6 @@ def save_info_from(episode_number, data_dir):
                 pickle.dump(episode, handle)
 
 
-# In[43]:
-
-data_dir = '/Users/adam/audio/data/'
-
-# latest episode as of august 2016
-episode_number = '596'
-
-while int(episode_number) >= 1:
-    # grab the info
-    save_info_from(episode_number, data_dir)
-    
-    # episode counter
-    episode_number = str(int(episode_number) - 1)
-#     if episode_number == '590':
-#         break
-
-
-# In[44]:
-
 def combine_pickle(DATA_DIR):
     """ Combines directory of pickled episode objects into a single DataFrame """
     
@@ -140,38 +112,22 @@ def combine_pickle(DATA_DIR):
     return episode
 
 
-# In[45]:
+
+data_dir = '/Users/adam/audio/data/'
+
+# latest episode as of august 2016
+episode_number = '594'
+
+while int(episode_number) >= 1:
+    # grab the info
+    save_info_from(episode_number, data_dir)
+    
+    # episode counter
+    episode_number = str(int(episode_number) - 1)
+
 
 tal = combine_pickle(data_dir)
 
-
-# In[46]:
-
-tal.columns
-
-
-# In[47]:
-
-x = tal.speaker_name.unique()
-
-
-# In[48]:
-
-tal.shape
-
-
-# In[50]:
-
 import sys
-sys.getsizeof(tal)
-
-
-# In[52]:
-
-len(tal['episode_number'].unique())
-
-
-# In[ ]:
-
-
-
+print "The size of TAL is " + str(sys.getsizeof(tal))
+print "It contains " + str(len(tal['episode_number'].unique())) + " episodes"
