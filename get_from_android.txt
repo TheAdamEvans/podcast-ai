@@ -1,2 +1,0 @@
-/Users/adam/Library/Android/sdk/platform-tools
-adb pull /sdcard/Android/data/org.prx.talbot/files/audio_189_dl.mp3 ~/Desktop/test_ira.mp3
