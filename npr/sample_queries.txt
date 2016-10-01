@@ -1,0 +1,3 @@
+http://api.npr.org/query?requiredAssets=audio,transcript&apiKey=MDI2MDExNjc3MDE0NzE4OTMwOTdmNjA1OA000
+
+http://api.npr.org/query?fields=audio,transcript&requiredAssets=audio,transcript&startNum=21&output=JSON&numResults=20&apiKey=MDI2MDExNjc3MDE0NzE4OTMwOTdmNjA1OA000
